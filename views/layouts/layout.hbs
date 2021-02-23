@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<link rel="stylesheet" href="/stylesheets/style.css">!-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <h1 style="text-align: center; margin: 15px; text-decoration: underline;">MONGO DATABASE CRUD</h1>
+  <div class="container">
+    <div class="row  mr-3">
+      <div class="col-sm mr-2 rounded btn-info ">
+        <h2 class="card-header">CREATE DATA</h2>
+        <form action="/insert" method="POST">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Title</label>
+            <input type="text" class="form-control" name="title">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Content</label>
+            <input type="text" class="form-control" name="content">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Author</label>
+            <input type="text" class="form-control" name="author">
+          </div>
+          <div class="form-group card-footer">
+            <button type="submit" class="btn btn-dark btn-lg">Insert</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm mr-2 btn-secondary rounded">
+        <h2 class="card-header">GET DATA</h2>
+ <form action="/getdata" method="GET">
+          <div class=" form-group card-footer">
+            <button type="submit" class="btn btn-dark btn-lg">GET</button>
+          </div>
+          {{# each items}}
+
+          <div class=" form-group" style="margin-bottom: 10px; background-color: black; padding: 5px;">
+          <h6>Title: {{this.title}}</h6>
+          <h6>Content: {{this.content}}</h6>
+          <h6>Author: {{this.author}}</h6>
+          <h6>ID: {{this._id}}</h6>
+
+          </div>
+          {{/each}}
+        </form>
+      </div>
+      <div class="col-sm mr-2 btn-primary rounded">
+        <h2 class="card-header">UPDATE DATA</h2>
+
+        <form action="/update-data" method="POST">
+          <div class="form-group">
+            <label for="formGroupExampleInput">ID</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="id">
+          </div>
+         <div class="form-group">
+            <label for="formGroupExampleInput">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="title">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Content</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="content">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Author</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="author">
+          </div>
+          <div class="form-group card-footer">
+            <button type="submit" class="btn btn-dark btn-lg" >UPDATE</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm btn-success mr-2 rounded">
+        <h2 class="card-header">DELETE DATA</h2>
+     
+        <form action="delete-data" method="POST">
+          <div class="form-group">
+            <label for="formGroupExampleInput">ID</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="id">
+          </div>
+          
+          <div class=" form-group card-footer">
+            <button type="submit" class="btn btn-dark btn-lg">DELETE</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
